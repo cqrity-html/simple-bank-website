@@ -152,7 +152,7 @@ let currentSlide = 0;
 // slider.style.overflow = 'visible';
 
 const createDots = function () {
-  slides.forEach(function (_, index) {
+  slides.forEach((_, index) => {
     dotContainer.insertAdjacentHTML(
       'beforeend',
       `<button class="dots__dot" data-slide="${index}"></button>`
@@ -179,7 +179,7 @@ const moveToSlide = function (slide) {
   );
 };
 
-moveToSlide(0);
+moveToSlide(currentSlide);
 
 const nextSlide = function () {
   if (currentSlide === slides.length - 1) {
@@ -206,11 +206,9 @@ const previousSlide = function () {
 };
 
 btnRight.addEventListener('click', nextSlide);
-
 btnLeft.addEventListener('click', previousSlide);
 
 document.addEventListener('keydown', function (e) {
-  console.log(e);
   if (e.key === 'ArrowRight') nextSlide();
   if (e.key === 'ArrowLeft') previousSlide();
 });
